@@ -134,44 +134,17 @@ function findAverage(bimester, grade) {
 	return sum / subjects;
 }
 
-// if (bimester < 5) {
-// 	console.log(
-// 		`\n -=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n ${bimester}º Bimestre: \n\n ${Object.entries(
-// 			searchFor
-// 		)
-// 			.join('\n ')
-// 			.replace(
-// 				/,/g,
-// 				': '
-// 			)} \n\n -=-=-=-=-=-=-=-=-=-=-=-=-=- \n\n → Média Bimestral: ${findAverage().toFixed(
-// 			1
-// 		)} \n\n -=-=-=-=-=-=-=-=-=-=-=-=-=- `
-// 	);
-// } else if (bimester == 5) {
-// 	console.log(
-// 		`\n -=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n Média Anual por Matéria: \n\n ${Object.entries(
-// 			annualCalculator()
-// 		)
-// 			.join('\n ')
-// 			.replace(
-// 				/,/g,
-// 				': '
-// 			)} \n\n -=-=-=-=-=-=-=-=-=-=-=-=-=- \n\n → Média Geral: ${findAverage().toFixed(
-// 			1
-// 		)} \n\n -=-=-=-=-=-=-=-=-=-=-=-=- `
-// 	);
-// }
-
 let first = document.getElementById('bimester1');
 let second = document.getElementById('bimester2');
 let third = document.getElementById('bimester3');
 let fourth = document.getElementById('bimester4');
 let year = document.getElementById('annual');
+let reveal = document.getElementById('reveal');
 
 function insertGrades(grades, bimester) {
 	let bimNumber = bimester.id.substring(8);
 
-	bimester.innerHTML += `<h2>Bimestre ${bimNumber}:</h2><hr><p>${Object.entries(
+	bimester.innerHTML += `<h2>Bimestre ${bimNumber}</h2><hr><p>${Object.entries(
 		grades
 	)
 		.join('</p>')
@@ -184,9 +157,16 @@ function insertGrades(grades, bimester) {
 function insertAnnualGrades() {
 	annualCalculator();
 
-	year.innerHTML = `<h3>Media anual: ${findAverage(5, annual).toFixed(
-		1
-	)}</h3>`;
+	year.innerHTML += `<h3 id='final-grade'>Media anual: ${findAverage(
+		5,
+		annual
+	).toFixed(1)}</h3>`;
+}
+
+function revealFunction() {
+	console.log('hi');
+	document.getElementById('final-grade').style.filter = `
+	blur(0px)`;
 }
 
 window.onload = insertGrades(grades1, first);
@@ -194,3 +174,5 @@ window.onload = insertGrades(grades2, second);
 window.onload = insertGrades(grades3, third);
 window.onload = insertGrades(grades4, fourth);
 window.onload = insertAnnualGrades();
+
+window.reveal.addEventListener('click', revealFunction);
