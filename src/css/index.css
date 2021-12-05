@@ -13,6 +13,10 @@ img {
 	width: 50px;
 }
 
+p {
+	font-size: 1.5rem !important;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link .show > .nav-link {
 	background-color: #ffc107 !important;
@@ -44,16 +48,24 @@ h3 {
 }
 
 @media screen and (max-width: 586px) {
+	.grades.w-50 {
+		width: 100% !important;
+	}
+
 	img {
 		width: 40px;
 	}
 
 	h2 {
-		padding: 5px 0;
-		font-size: 2rem !important;
+		padding: 5px;
+		font-size: 1.75rem !important;
 	}
 
 	h3 {
 		font-size: 2rem !important;
+	}
+
+	p {
+		font-size: 1rem !important;
 	}
 }

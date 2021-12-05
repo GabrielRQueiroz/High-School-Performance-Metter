@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "js-confetti": "^0.10.0",
     "prompt-sync": "^4.2.0",
     "prompt-sync-history": "^1.0.1"
   }

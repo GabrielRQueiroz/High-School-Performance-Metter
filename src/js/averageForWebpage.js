@@ -140,6 +140,23 @@ let third = document.getElementById('bimester3');
 let fourth = document.getElementById('bimester4');
 let year = document.getElementById('annual');
 let reveal = document.getElementById('reveal');
+let jsConfetti = new JSConfetti();
+
+function popConfetti() {
+	if (document.getElementById('final-grade').style.filter !== `blur(0px)`) {
+		setTimeout(
+			() =>
+				jsConfetti.addConfetti({
+					emojis: ['😎', '💪', '🔥'],
+					emojiSize: 100,
+					confettiNumber: 100,
+				}),
+			500
+		);
+	} else {
+		return null;
+	}
+}
 
 function insertGrades(grades, bimester) {
 	let bimNumber = bimester.id.substring(8);
@@ -147,7 +164,7 @@ function insertGrades(grades, bimester) {
 	bimester.innerHTML += `<h2>Bimestre ${bimNumber}</h2><hr><p>${Object.entries(
 		grades
 	)
-		.join('</p>')
+		.join('<p>')
 		.replace(/,/g, ': ')}<hr><h4>Média Bimestral: ${findAverage(
 		bimNumber,
 		grades
@@ -164,9 +181,7 @@ function insertAnnualGrades() {
 }
 
 function revealFunction() {
-	console.log('hi');
-	document.getElementById('final-grade').style.filter = `
-	blur(0px)`;
+	document.getElementById('final-grade').style.filter = `blur(0px)`;
 }
 
 window.onload = insertGrades(grades1, first);
@@ -175,4 +190,5 @@ window.onload = insertGrades(grades3, third);
 window.onload = insertGrades(grades4, fourth);
 window.onload = insertAnnualGrades();
 
+window.reveal.addEventListener('click', popConfetti);
 window.reveal.addEventListener('click', revealFunction);
