@@ -110,7 +110,7 @@ function annualCalculator() {
 		annual[key] = parseFloat(x);
 	}
 
-	year.innerHTML = `<h3>Media anual: ${annual}</h3>`;
+	return annual;
 }
 
 function findAverage(bimester, grade) {
@@ -181,8 +181,16 @@ function insertGrades(grades, bimester) {
 	).toFixed(1)}</h4>`;
 }
 
+function insertAnnualGrades() {
+	annualCalculator();
+
+	year.innerHTML = `<h3>Media anual: ${findAverage(5, annual).toFixed(
+		1
+	)}</h3>`;
+}
+
 window.onload = insertGrades(grades1, first);
 window.onload = insertGrades(grades2, second);
 window.onload = insertGrades(grades3, third);
 window.onload = insertGrades(grades4, fourth);
-window.onload = annualCalculator();
+window.onload = insertAnnualGrades();
