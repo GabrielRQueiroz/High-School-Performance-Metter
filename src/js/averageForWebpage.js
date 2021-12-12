@@ -67,7 +67,7 @@ const grades4 = {
 	Geografia: 9.5,
 	História: 10,
 	Espanhol: 9.5,
-	Inglês: 7.8,
+	Inglês: 8.8,
 	Matemática: 9.5,
 	Química: 9.2,
 	Redação: 9,
